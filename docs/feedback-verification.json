@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "source": "Live operator review export",
+  "feedback": {
+    "file_sha256": "49e870a7997d60dd662dbb9d13c227d6c469058d805564d931202da26c50a0b3",
+    "added": 1,
+    "skipped": {
+      "conflicting_labels": 0
+    }
+  },
+  "split_rows": {
+    "fit": 7495,
+    "calibration": 1249,
+    "validation": 1249,
+    "test": 3080
+  },
+  "serialization_parity": true,
+  "selected_model": "word_char_lr",
+  "activation": "not activated; main model remains banking77-v1"
+}
