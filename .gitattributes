@@ -1,0 +1,2 @@
+# Сохраняем исходные CSV побайтово, чтобы их SHA-256 совпадал с источником.
+data/*.csv -text whitespace=-blank-at-eol,-blank-at-eof

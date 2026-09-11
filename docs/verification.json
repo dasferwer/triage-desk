@@ -1,0 +1,56 @@
+{
+  "verified_at": "2026-09-11T07:04:36.855220+00:00",
+  "project": "triagedesk",
+  "integration_tests": {
+    "passed": 26,
+    "output": "26 passed in 1.47s",
+    "database": "PostgreSQL 17, isolated test-db"
+  },
+  "live_smoke": {
+    "ok": true,
+    "automatic_intent": "lost_or_stolen_card",
+    "uncertain_to_review": true,
+    "unsupported_language_to_review": true,
+    "operator_correction": true,
+    "stale_review_rejected": true,
+    "feedback_export": true,
+    "ticket_id": "24485223-51e4-4b83-8f78-8f359e8a7beb"
+  },
+  "recovery": {
+    "ok": true,
+    "accepted_during_broker_outage": true,
+    "worker_sigkill_recovered": true,
+    "attempts": 2,
+    "classification_commits": 1,
+    "ticket_id": "b746f945-7b80-4233-af2f-82be8b47133e"
+  },
+  "feedback_training": {
+    "ok": true,
+    "source": "Live operator review export",
+    "feedback": {
+      "file_sha256": "49e870a7997d60dd662dbb9d13c227d6c469058d805564d931202da26c50a0b3",
+      "added": 1,
+      "skipped": {
+        "conflicting_labels": 0
+      }
+    },
+    "split_rows": {
+      "fit": 7495,
+      "calibration": 1249,
+      "validation": 1249,
+      "test": 3080
+    },
+    "serialization_parity": true,
+    "selected_model": "word_char_lr",
+    "activation": "not activated; main model remains banking77-v1"
+  },
+  "checks": {
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "uv_lock": "passed",
+    "docker_compose": "passed",
+    "seed_twice": "passed",
+    "runtime_without_pytest_and_ruff": "passed",
+    "openapi_snapshot_matches_live": "passed"
+  }
+}

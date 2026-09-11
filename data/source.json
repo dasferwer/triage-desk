@@ -1,0 +1,11 @@
+{
+  "dataset": "BANKING77",
+  "revision": "57ec275d8078af65b7731c2a98be812d844a6d6b",
+  "url": "https://github.com/PolyAI-LDN/task-specific-datasets",
+  "license": "CC BY 4.0",
+  "files_sha256": {
+    "train.csv": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b",
+    "test.csv": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d",
+    "categories.json": "53261da888122daf2d120d925458631d9619e15d82e56052e7a42e535ce32b63"
+  }
+}

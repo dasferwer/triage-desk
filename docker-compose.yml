@@ -1,0 +1,120 @@
+name: 14-triage-desk
+
+x-app: &app
+  build:
+    context: .
+    target: runtime
+  environment: &environment
+    DATABASE_URL: postgresql+asyncpg://triagedesk:triagedesk@database:5432/triagedesk
+    AMQP_URL: amqp://triagedesk:triagedesk@rabbitmq:5672/
+    JWT_SECRET: ${JWT_SECRET:-local-demo-triagedesk-replace-before-deployment}
+    LEASE_SECONDS: ${LEASE_SECONDS:-15}
+    INFERENCE_DELAY_SECONDS: ${INFERENCE_DELAY_SECONDS:-0}
+    MODEL_DIR: /app/models
+  restart: unless-stopped
+  init: true
+
+services:
+  database:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: triagedesk
+      POSTGRES_USER: triagedesk
+      POSTGRES_PASSWORD: triagedesk
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U triagedesk -d triagedesk"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+  rabbitmq:
+    image: rabbitmq:4-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: triagedesk
+      RABBITMQ_DEFAULT_PASS: triagedesk
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+  migrate:
+    <<: *app
+    command: ["sh", "-c", "alembic upgrade head && python scripts/seed.py"]
+    depends_on:
+      database:
+        condition: service_healthy
+    restart: "no"
+  api:
+    <<: *app
+    ports:
+      - "127.0.0.1:8140:8000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  dispatcher:
+    <<: *app
+    command: ["python", "-m", "triagedesk.dispatcher"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "scripts/worker_health.py", "dispatcher"]
+      interval: 5s
+      timeout: 5s
+      retries: 6
+  worker:
+    <<: *app
+    command: ["python", "-m", "triagedesk.worker"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "scripts/worker_health.py", "classifier"]
+      interval: 5s
+      timeout: 5s
+      retries: 6
+  test-db:
+    image: postgres:17-alpine
+    profiles: ["test"]
+    environment:
+      POSTGRES_DB: triagedesk_test
+      POSTGRES_USER: triagedesk
+      POSTGRES_PASSWORD: triagedesk
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U triagedesk -d triagedesk_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  test:
+    build:
+      context: .
+      target: test
+    profiles: ["test"]
+    environment:
+      <<: *environment
+      DATABASE_URL: postgresql+asyncpg://triagedesk:triagedesk@test-db:5432/triagedesk_test
+      TESTING: "true"
+    depends_on:
+      test-db:
+        condition: service_healthy
+    init: true
+
+volumes:
+  postgres_data:
+  rabbitmq_data:
