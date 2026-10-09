@@ -73,3 +73,11 @@ validation с шагом 0.005: нужен минимум 50 принятых о
 Источники: [карточка BANKING77](https://huggingface.co/datasets/PolyAI/banking77),
 [scikit-learn: calibration](https://scikit-learn.org/stable/modules/calibration.html),
 [scikit-learn: утечки при подготовке данных](https://scikit-learn.org/stable/common_pitfalls.html).
+
+## Независимые OOD и смена источника
+
+[Замороженная проверка CLINC150](external-evaluation.md) обнаружила ошибочную
+автомаршрутизацию 541/1800 небанковских запросов (30.06%). На 90 запросах трёх
+заранее сопоставленных тем другого источника ошибка среди автоматических —
+37/75 (49.33%). Модель и порог не менялись. Эти результаты ограничивают применение
+вне исходного BANKING77; числа, интервалы и воспроизведение приведены в отчёте.

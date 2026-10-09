@@ -1,0 +1,3143 @@
+{
+  "source": {
+    "repository": "https://github.com/clinc/oos-eval",
+    "revision": "828f8093932c8fe6ca7936c3d2e52903b1c523de",
+    "license": "CC-BY-3.0",
+    "citation": "Larson et al., An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction, EMNLP-IJCNLP 2019, https://aclanthology.org/D19-1131/",
+    "files_sha256": {
+      "data_full.json": "36923c3705a59e08fe9c3883d8bc2dd966ef93e22cb78ac41171782a698d56e0",
+      "domains.json": "b947b579d3b8e74b06f93b01083d8efaff2888b43a3e362533bd88a6e1211b3a",
+      "LICENSE": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
+    },
+    "ood_domains": [
+      "kitchen_and_dining",
+      "auto_and_commute",
+      "utility",
+      "small_talk"
+    ],
+    "shift_mapping": {
+      "pin_change": "change_pin",
+      "report_lost_card": "lost_or_stolen_card",
+      "exchange_rate": "exchange_rate"
+    },
+    "selection": "All official test rows of selected domains and mapped intents. No CLINC train/val/oos splits used. Selection and mapping fixed before inference. Exclude normalized or punctuation-insensitive overlap with any BANKING77 train/test row, and within external selection.",
+    "feedback": "Saved banking77-v1 evaluation dataset.feedback is null; no feedback used in artifact.",
+    "family_definition": "NFKC lowercase project clean_text, then alphanumeric tokens joined; exact family hash only, no claim of semantic deduplication."
+  },
+  "source_manifest_sha256": "626a39be010ba85dd38218a84ae483f5bb48288060888150d3cf4e9c55299cc7",
+  "model_manifest_sha256": "118dd8c46989b3110a42414ee49117b9198639d125f8a0028ed35e58f1213fdf",
+  "threshold": 0.385,
+  "frozen_selection_sha256": "f3aac30f08a35e9d13728b51d05b6514bd0279cfe78dd7eaf8cc825b4981e0ae",
+  "excluded": {},
+  "remaining_family_overlap": 0,
+  "banking77_family_count": 13023,
+  "selected_rows": 1890,
+  "groups": {
+    "ood": {
+      "rows": 1800,
+      "automatic_coverage": {
+        "count": 1800,
+        "success": 541,
+        "rate": 0.3005555555555556,
+        "wilson_95": [
+          0.27981738219393326,
+          0.32214320226374404
+        ]
+      },
+      "rejection_coverage": {
+        "count": 1800,
+        "success": 1259,
+        "rate": 0.6994444444444444,
+        "wilson_95": [
+          0.677856797736256,
+          0.7201826178060668
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 1800,
+        "success": 541,
+        "rate": 0.3005555555555556,
+        "wilson_95": [
+          0.27981738219393326,
+          0.32214320226374404
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 541,
+        "success": 541,
+        "rate": 1.0,
+        "wilson_95": [
+          0.9929494006770172,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 1243,
+        "auto_routed": 541,
+        "no_known_terms": 16
+      }
+    },
+    "ood/auto_and_commute": {
+      "rows": 450,
+      "automatic_coverage": {
+        "count": 450,
+        "success": 128,
+        "rate": 0.28444444444444444,
+        "wilson_95": [
+          0.24472236488375357,
+          0.3278155859149494
+        ]
+      },
+      "rejection_coverage": {
+        "count": 450,
+        "success": 322,
+        "rate": 0.7155555555555555,
+        "wilson_95": [
+          0.6721844140850506,
+          0.7552776351162465
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 450,
+        "success": 128,
+        "rate": 0.28444444444444444,
+        "wilson_95": [
+          0.24472236488375357,
+          0.3278155859149494
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 128,
+        "success": 128,
+        "rate": 1.0,
+        "wilson_95": [
+          0.9708630437264916,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 128,
+        "low_confidence": 322
+      }
+    },
+    "ood/intent/accept_reservations": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 24,
+        "rate": 0.8,
+        "wilson_95": [
+          0.6269430358685175,
+          0.9049489282271013
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 6,
+        "success": 6,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6096657120978346,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 24,
+        "auto_routed": 6
+      }
+    },
+    "ood/intent/alarm": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 23,
+        "rate": 0.7666666666666667,
+        "wilson_95": [
+          0.5907167384187784,
+          0.8820761185551049
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 7,
+        "success": 7,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6456695649333126,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 23,
+        "auto_routed": 7
+      }
+    },
+    "ood/intent/are_you_a_bot": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 18,
+        "rate": 0.6,
+        "wilson_95": [
+          0.42320360253322475,
+          0.7540937188319815
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 12,
+        "success": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7575059933447592,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 18,
+        "auto_routed": 12
+      }
+    },
+    "ood/intent/calculator": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 19,
+        "rate": 0.6333333333333333,
+        "wilson_95": [
+          0.4551356365479487,
+          0.7812607919389929
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 11,
+        "success": 11,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7411670330319684,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 11,
+        "low_confidence": 19
+      }
+    },
+    "ood/intent/calories": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 18,
+        "rate": 0.6,
+        "wilson_95": [
+          0.42320360253322475,
+          0.7540937188319815
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 18,
+        "rate": 0.6,
+        "wilson_95": [
+          0.42320360253322475,
+          0.7540937188319815
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 18,
+        "success": 18,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8241207763533425,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 18,
+        "low_confidence": 12
+      }
+    },
+    "ood/intent/cancel_reservation": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 22,
+        "rate": 0.7333333333333333,
+        "wilson_95": [
+          0.555520383048111,
+          0.8581733668040368
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 8,
+        "rate": 0.26666666666666666,
+        "wilson_95": [
+          0.14182663319596317,
+          0.4444796169518888
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 22,
+        "rate": 0.7333333333333333,
+        "wilson_95": [
+          0.555520383048111,
+          0.8581733668040368
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 22,
+        "success": 22,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8513451253913791,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 8,
+        "auto_routed": 22
+      }
+    },
+    "ood/intent/confirm_reservation": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 2,
+        "rate": 0.06666666666666667,
+        "wilson_95": [
+          0.018477023791270378,
+          0.2132345836261692
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 28,
+        "rate": 0.9333333333333333,
+        "wilson_95": [
+          0.7867654163738308,
+          0.9815229762087295
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 2,
+        "rate": 0.06666666666666667,
+        "wilson_95": [
+          0.018477023791270378,
+          0.2132345836261692
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 2,
+        "success": 2,
+        "rate": 1.0,
+        "wilson_95": [
+          0.34238022750665303,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 28,
+        "auto_routed": 2
+      }
+    },
+    "ood/intent/cook_time": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 17,
+        "rate": 0.5666666666666667,
+        "wilson_95": [
+          0.3919730700081361,
+          0.7262251442353347
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 13,
+        "rate": 0.43333333333333335,
+        "wilson_95": [
+          0.2737748557646652,
+          0.6080269299918639
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 17,
+        "rate": 0.5666666666666667,
+        "wilson_95": [
+          0.3919730700081361,
+          0.7262251442353347
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 17,
+        "success": 17,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8156818649911483,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 17,
+        "low_confidence": 13
+      }
+    },
+    "ood/intent/current_location": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 24,
+        "rate": 0.8,
+        "wilson_95": [
+          0.6269430358685175,
+          0.9049489282271013
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 6,
+        "success": 6,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6096657120978346,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 24,
+        "auto_routed": 6
+      }
+    },
+    "ood/intent/date": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 19,
+        "rate": 0.6333333333333333,
+        "wilson_95": [
+          0.4551356365479487,
+          0.7812607919389929
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 11,
+        "success": 11,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7411670330319684,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 19,
+        "auto_routed": 11
+      }
+    },
+    "ood/intent/definition": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 27,
+        "rate": 0.9,
+        "wilson_95": [
+          0.7437891742081593,
+          0.9654001112526658
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 3,
+        "success": 3,
+        "rate": 1.0,
+        "wilson_95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "reasons": {
+        "no_known_terms": 3,
+        "low_confidence": 24,
+        "auto_routed": 3
+      }
+    },
+    "ood/intent/directions": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 20,
+        "rate": 0.6666666666666666,
+        "wilson_95": [
+          0.4878005164454384,
+          0.8076950191632386
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 20,
+        "rate": 0.6666666666666666,
+        "wilson_95": [
+          0.4878005164454384,
+          0.8076950191632386
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 20,
+        "success": 20,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8388748419471806,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 20,
+        "low_confidence": 10
+      }
+    },
+    "ood/intent/distance": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 17,
+        "rate": 0.5666666666666667,
+        "wilson_95": [
+          0.3919730700081361,
+          0.7262251442353347
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 13,
+        "rate": 0.43333333333333335,
+        "wilson_95": [
+          0.2737748557646652,
+          0.6080269299918639
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 17,
+        "rate": 0.5666666666666667,
+        "wilson_95": [
+          0.3919730700081361,
+          0.7262251442353347
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 17,
+        "success": 17,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8156818649911483,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 13,
+        "auto_routed": 17
+      }
+    },
+    "ood/intent/do_you_have_pets": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 18,
+        "rate": 0.6,
+        "wilson_95": [
+          0.42320360253322475,
+          0.7540937188319815
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 12,
+        "success": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7575059933447592,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 18,
+        "auto_routed": 12
+      }
+    },
+    "ood/intent/find_phone": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 29,
+        "rate": 0.9666666666666667,
+        "wilson_95": [
+          0.8332960900859082,
+          0.9940914096183874
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 1,
+        "rate": 0.03333333333333333,
+        "wilson_95": [
+          0.005908590381612455,
+          0.16670390991409173
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 29,
+        "rate": 0.9666666666666667,
+        "wilson_95": [
+          0.8332960900859082,
+          0.9940914096183874
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 29,
+        "success": 29,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8830302015002593,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 29,
+        "low_confidence": 1
+      }
+    },
+    "ood/intent/flip_coin": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 20,
+        "rate": 0.6666666666666666,
+        "wilson_95": [
+          0.4878005164454384,
+          0.8076950191632386
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 10,
+        "success": 10,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7224672001371107,
+          0.9999999999999999
+        ]
+      },
+      "reasons": {
+        "low_confidence": 15,
+        "auto_routed": 10,
+        "no_known_terms": 5
+      }
+    },
+    "ood/intent/food_last": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 14,
+        "rate": 0.4666666666666667,
+        "wilson_95": [
+          0.30232388907699753,
+          0.638577003801267
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 16,
+        "rate": 0.5333333333333333,
+        "wilson_95": [
+          0.36142299619873297,
+          0.6976761109230025
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 14,
+        "rate": 0.4666666666666667,
+        "wilson_95": [
+          0.30232388907699753,
+          0.638577003801267
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 14,
+        "success": 14,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7846891972623643,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 14,
+        "low_confidence": 16
+      }
+    },
+    "ood/intent/fun_fact": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 8,
+        "rate": 0.26666666666666666,
+        "wilson_95": [
+          0.14182663319596317,
+          0.4444796169518888
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 22,
+        "rate": 0.7333333333333333,
+        "wilson_95": [
+          0.555520383048111,
+          0.8581733668040368
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 8,
+        "rate": 0.26666666666666666,
+        "wilson_95": [
+          0.14182663319596317,
+          0.4444796169518888
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 8,
+        "success": 8,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6755924351161198,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 8,
+        "low_confidence": 22
+      }
+    },
+    "ood/intent/gas": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 27,
+        "rate": 0.9,
+        "wilson_95": [
+          0.7437891742081593,
+          0.9654001112526658
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 3,
+        "success": 3,
+        "rate": 1.0,
+        "wilson_95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 27,
+        "auto_routed": 3
+      }
+    },
+    "ood/intent/gas_type": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 5,
+        "rate": 0.16666666666666666,
+        "wilson_95": [
+          0.0733654237184855,
+          0.3356435050641603
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 25,
+        "rate": 0.8333333333333334,
+        "wilson_95": [
+          0.6643564949358398,
+          0.9266345762815145
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 5,
+        "rate": 0.16666666666666666,
+        "wilson_95": [
+          0.0733654237184855,
+          0.3356435050641603
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 5,
+        "success": 5,
+        "rate": 1.0,
+        "wilson_95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 25,
+        "auto_routed": 5
+      }
+    },
+    "ood/intent/goodbye": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 0,
+        "rate": 0.0,
+        "wilson_95": [
+          0.0,
+          0.11351339317396876
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 30,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8864866068260312,
+          0.9999999999999999
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 0,
+        "rate": 0.0,
+        "wilson_95": [
+          0.0,
+          0.11351339317396876
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 0,
+        "success": 0,
+        "rate": null,
+        "wilson_95": null
+      },
+      "reasons": {
+        "low_confidence": 28,
+        "no_known_terms": 2
+      }
+    },
+    "ood/intent/greeting": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 27,
+        "rate": 0.9,
+        "wilson_95": [
+          0.7437891742081593,
+          0.9654001112526658
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 3,
+        "success": 3,
+        "rate": 1.0,
+        "wilson_95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 26,
+        "auto_routed": 3,
+        "no_known_terms": 1
+      }
+    },
+    "ood/intent/how_busy": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 9,
+        "rate": 0.3,
+        "wilson_95": [
+          0.16664748268243793,
+          0.47875787458714947
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 21,
+        "rate": 0.7,
+        "wilson_95": [
+          0.5212421254128504,
+          0.8333525173175619
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 9,
+        "rate": 0.3,
+        "wilson_95": [
+          0.16664748268243793,
+          0.47875787458714947
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 9,
+        "success": 9,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7008549515804559,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 21,
+        "auto_routed": 9
+      }
+    },
+    "ood/intent/how_old_are_you": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 21,
+        "rate": 0.7,
+        "wilson_95": [
+          0.5212421254128504,
+          0.8333525173175619
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 9,
+        "rate": 0.3,
+        "wilson_95": [
+          0.16664748268243793,
+          0.47875787458714947
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 21,
+        "rate": 0.7,
+        "wilson_95": [
+          0.5212421254128504,
+          0.8333525173175619
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 21,
+        "success": 21,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8453609810751531,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 21,
+        "low_confidence": 9
+      }
+    },
+    "ood/intent/ingredient_substitution": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 18,
+        "rate": 0.6,
+        "wilson_95": [
+          0.42320360253322475,
+          0.7540937188319815
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 12,
+        "success": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7575059933447592,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 12,
+        "low_confidence": 18
+      }
+    },
+    "ood/intent/ingredients_list": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 20,
+        "rate": 0.6666666666666666,
+        "wilson_95": [
+          0.4878005164454384,
+          0.8076950191632386
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 10,
+        "success": 10,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7224672001371107,
+          0.9999999999999999
+        ]
+      },
+      "reasons": {
+        "auto_routed": 10,
+        "low_confidence": 20
+      }
+    },
+    "ood/intent/jump_start": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 19,
+        "rate": 0.6333333333333333,
+        "wilson_95": [
+          0.4551356365479487,
+          0.7812607919389929
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 11,
+        "success": 11,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7411670330319684,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 19,
+        "auto_routed": 11
+      }
+    },
+    "ood/intent/last_maintenance": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 27,
+        "rate": 0.9,
+        "wilson_95": [
+          0.7437891742081593,
+          0.9654001112526658
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 3,
+        "success": 3,
+        "rate": 1.0,
+        "wilson_95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 27,
+        "auto_routed": 3
+      }
+    },
+    "ood/intent/make_call": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 18,
+        "rate": 0.6,
+        "wilson_95": [
+          0.42320360253322475,
+          0.7540937188319815
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 12,
+        "success": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7575059933447592,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 18,
+        "auto_routed": 12
+      }
+    },
+    "ood/intent/meal_suggestion": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 23,
+        "rate": 0.7666666666666667,
+        "wilson_95": [
+          0.5907167384187784,
+          0.8820761185551049
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 7,
+        "success": 7,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6456695649333126,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 22,
+        "auto_routed": 7,
+        "no_known_terms": 1
+      }
+    },
+    "ood/intent/meaning_of_life": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 1,
+        "rate": 0.03333333333333333,
+        "wilson_95": [
+          0.005908590381612455,
+          0.16670390991409173
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 29,
+        "rate": 0.9666666666666667,
+        "wilson_95": [
+          0.8332960900859082,
+          0.9940914096183874
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 1,
+        "rate": 0.03333333333333333,
+        "wilson_95": [
+          0.005908590381612455,
+          0.16670390991409173
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 1,
+        "success": 1,
+        "rate": 1.0,
+        "wilson_95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 29,
+        "auto_routed": 1
+      }
+    },
+    "ood/intent/measurement_conversion": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 13,
+        "rate": 0.43333333333333335,
+        "wilson_95": [
+          0.2737748557646652,
+          0.6080269299918639
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 17,
+        "rate": 0.5666666666666667,
+        "wilson_95": [
+          0.3919730700081361,
+          0.7262251442353347
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 13,
+        "rate": 0.43333333333333335,
+        "wilson_95": [
+          0.2737748557646652,
+          0.6080269299918639
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 13,
+        "success": 13,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7719046276458016,
+          0.9999999999999999
+        ]
+      },
+      "reasons": {
+        "auto_routed": 13,
+        "low_confidence": 17
+      }
+    },
+    "ood/intent/mpg": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 24,
+        "rate": 0.8,
+        "wilson_95": [
+          0.6269430358685175,
+          0.9049489282271013
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 6,
+        "success": 6,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6096657120978346,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 24,
+        "auto_routed": 6
+      }
+    },
+    "ood/intent/nutrition_info": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 5,
+        "rate": 0.16666666666666666,
+        "wilson_95": [
+          0.0733654237184855,
+          0.3356435050641603
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 25,
+        "rate": 0.8333333333333334,
+        "wilson_95": [
+          0.6643564949358398,
+          0.9266345762815145
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 5,
+        "rate": 0.16666666666666666,
+        "wilson_95": [
+          0.0733654237184855,
+          0.3356435050641603
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 5,
+        "success": 5,
+        "rate": 1.0,
+        "wilson_95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 25,
+        "auto_routed": 5
+      }
+    },
+    "ood/intent/oil_change_how": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 20,
+        "rate": 0.6666666666666666,
+        "wilson_95": [
+          0.4878005164454384,
+          0.8076950191632386
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 20,
+        "rate": 0.6666666666666666,
+        "wilson_95": [
+          0.4878005164454384,
+          0.8076950191632386
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 20,
+        "success": 20,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8388748419471806,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 20,
+        "low_confidence": 10
+      }
+    },
+    "ood/intent/oil_change_when": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 8,
+        "rate": 0.26666666666666666,
+        "wilson_95": [
+          0.14182663319596317,
+          0.4444796169518888
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 22,
+        "rate": 0.7333333333333333,
+        "wilson_95": [
+          0.555520383048111,
+          0.8581733668040368
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 8,
+        "rate": 0.26666666666666666,
+        "wilson_95": [
+          0.14182663319596317,
+          0.4444796169518888
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 8,
+        "success": 8,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6755924351161198,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 22,
+        "auto_routed": 8
+      }
+    },
+    "ood/intent/recipe": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 20,
+        "rate": 0.6666666666666666,
+        "wilson_95": [
+          0.4878005164454384,
+          0.8076950191632386
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 10,
+        "success": 10,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7224672001371107,
+          0.9999999999999999
+        ]
+      },
+      "reasons": {
+        "low_confidence": 20,
+        "auto_routed": 10
+      }
+    },
+    "ood/intent/restaurant_reservation": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 1,
+        "rate": 0.03333333333333333,
+        "wilson_95": [
+          0.005908590381612455,
+          0.16670390991409173
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 29,
+        "rate": 0.9666666666666667,
+        "wilson_95": [
+          0.8332960900859082,
+          0.9940914096183874
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 1,
+        "rate": 0.03333333333333333,
+        "wilson_95": [
+          0.005908590381612455,
+          0.16670390991409173
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 1,
+        "success": 1,
+        "rate": 1.0,
+        "wilson_95": [
+          0.20654931437723745,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 29,
+        "auto_routed": 1
+      }
+    },
+    "ood/intent/restaurant_reviews": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 5,
+        "rate": 0.16666666666666666,
+        "wilson_95": [
+          0.0733654237184855,
+          0.3356435050641603
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 25,
+        "rate": 0.8333333333333334,
+        "wilson_95": [
+          0.6643564949358398,
+          0.9266345762815145
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 5,
+        "rate": 0.16666666666666666,
+        "wilson_95": [
+          0.0733654237184855,
+          0.3356435050641603
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 5,
+        "success": 5,
+        "rate": 1.0,
+        "wilson_95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 24,
+        "auto_routed": 5,
+        "no_known_terms": 1
+      }
+    },
+    "ood/intent/restaurant_suggestion": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 20,
+        "rate": 0.6666666666666666,
+        "wilson_95": [
+          0.4878005164454384,
+          0.8076950191632386
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 10,
+        "rate": 0.3333333333333333,
+        "wilson_95": [
+          0.19230498083676134,
+          0.5121994835545616
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 10,
+        "success": 10,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7224672001371107,
+          0.9999999999999999
+        ]
+      },
+      "reasons": {
+        "low_confidence": 20,
+        "auto_routed": 10
+      }
+    },
+    "ood/intent/roll_dice": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 27,
+        "rate": 0.9,
+        "wilson_95": [
+          0.7437891742081593,
+          0.9654001112526658
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 3,
+        "success": 3,
+        "rate": 1.0,
+        "wilson_95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 26,
+        "auto_routed": 3,
+        "no_known_terms": 1
+      }
+    },
+    "ood/intent/schedule_maintenance": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 23,
+        "rate": 0.7666666666666667,
+        "wilson_95": [
+          0.5907167384187784,
+          0.8820761185551049
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 7,
+        "success": 7,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6456695649333126,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 23,
+        "auto_routed": 7
+      }
+    },
+    "ood/intent/share_location": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 19,
+        "rate": 0.6333333333333333,
+        "wilson_95": [
+          0.4551356365479487,
+          0.7812607919389929
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 11,
+        "success": 11,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7411670330319684,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 19,
+        "auto_routed": 11
+      }
+    },
+    "ood/intent/spelling": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 2,
+        "rate": 0.06666666666666667,
+        "wilson_95": [
+          0.018477023791270378,
+          0.2132345836261692
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 28,
+        "rate": 0.9333333333333333,
+        "wilson_95": [
+          0.7867654163738308,
+          0.9815229762087295
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 2,
+        "rate": 0.06666666666666667,
+        "wilson_95": [
+          0.018477023791270378,
+          0.2132345836261692
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 2,
+        "success": 2,
+        "rate": 1.0,
+        "wilson_95": [
+          0.34238022750665303,
+          1.0
+        ]
+      },
+      "reasons": {
+        "no_known_terms": 1,
+        "auto_routed": 2,
+        "low_confidence": 27
+      }
+    },
+    "ood/intent/tell_joke": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 8,
+        "rate": 0.26666666666666666,
+        "wilson_95": [
+          0.14182663319596317,
+          0.4444796169518888
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 22,
+        "rate": 0.7333333333333333,
+        "wilson_95": [
+          0.555520383048111,
+          0.8581733668040368
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 8,
+        "rate": 0.26666666666666666,
+        "wilson_95": [
+          0.14182663319596317,
+          0.4444796169518888
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 8,
+        "success": 8,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6755924351161198,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 8,
+        "low_confidence": 22
+      }
+    },
+    "ood/intent/text": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 23,
+        "rate": 0.7666666666666667,
+        "wilson_95": [
+          0.5907167384187784,
+          0.8820761185551049
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 7,
+        "success": 7,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6456695649333126,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 22,
+        "auto_routed": 7,
+        "no_known_terms": 1
+      }
+    },
+    "ood/intent/thank_you": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 24,
+        "rate": 0.8,
+        "wilson_95": [
+          0.6269430358685175,
+          0.9049489282271013
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 6,
+        "success": 6,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6096657120978346,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 24,
+        "auto_routed": 6
+      }
+    },
+    "ood/intent/time": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 23,
+        "rate": 0.7666666666666667,
+        "wilson_95": [
+          0.5907167384187784,
+          0.8820761185551049
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 7,
+        "success": 7,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6456695649333126,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 23,
+        "auto_routed": 7
+      }
+    },
+    "ood/intent/timer": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 2,
+        "rate": 0.06666666666666667,
+        "wilson_95": [
+          0.018477023791270378,
+          0.2132345836261692
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 28,
+        "rate": 0.9333333333333333,
+        "wilson_95": [
+          0.7867654163738308,
+          0.9815229762087295
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 2,
+        "rate": 0.06666666666666667,
+        "wilson_95": [
+          0.018477023791270378,
+          0.2132345836261692
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 2,
+        "success": 2,
+        "rate": 1.0,
+        "wilson_95": [
+          0.34238022750665303,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 28,
+        "auto_routed": 2
+      }
+    },
+    "ood/intent/tire_change": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 24,
+        "rate": 0.8,
+        "wilson_95": [
+          0.6269430358685175,
+          0.9049489282271013
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 6,
+        "success": 6,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6096657120978346,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 6,
+        "low_confidence": 24
+      }
+    },
+    "ood/intent/tire_pressure": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 27,
+        "rate": 0.9,
+        "wilson_95": [
+          0.7437891742081593,
+          0.9654001112526658
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 3,
+        "rate": 0.1,
+        "wilson_95": [
+          0.03459988874733419,
+          0.25621082579184085
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 3,
+        "success": 3,
+        "rate": 1.0,
+        "wilson_95": [
+          0.4385029682449546,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 27,
+        "auto_routed": 3
+      }
+    },
+    "ood/intent/traffic": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 5,
+        "rate": 0.16666666666666666,
+        "wilson_95": [
+          0.0733654237184855,
+          0.3356435050641603
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 25,
+        "rate": 0.8333333333333334,
+        "wilson_95": [
+          0.6643564949358398,
+          0.9266345762815145
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 5,
+        "rate": 0.16666666666666666,
+        "wilson_95": [
+          0.0733654237184855,
+          0.3356435050641603
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 5,
+        "success": 5,
+        "rate": 1.0,
+        "wilson_95": [
+          0.5655175352168251,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 25,
+        "auto_routed": 5
+      }
+    },
+    "ood/intent/uber": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 8,
+        "rate": 0.26666666666666666,
+        "wilson_95": [
+          0.14182663319596317,
+          0.4444796169518888
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 22,
+        "rate": 0.7333333333333333,
+        "wilson_95": [
+          0.555520383048111,
+          0.8581733668040368
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 8,
+        "rate": 0.26666666666666666,
+        "wilson_95": [
+          0.14182663319596317,
+          0.4444796169518888
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 8,
+        "success": 8,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6755924351161198,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 8,
+        "low_confidence": 22
+      }
+    },
+    "ood/intent/weather": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 9,
+        "rate": 0.3,
+        "wilson_95": [
+          0.16664748268243793,
+          0.47875787458714947
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 21,
+        "rate": 0.7,
+        "wilson_95": [
+          0.5212421254128504,
+          0.8333525173175619
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 9,
+        "rate": 0.3,
+        "wilson_95": [
+          0.16664748268243793,
+          0.47875787458714947
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 9,
+        "success": 9,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7008549515804559,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 9,
+        "low_confidence": 21
+      }
+    },
+    "ood/intent/what_are_your_hobbies": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 23,
+        "rate": 0.7666666666666667,
+        "wilson_95": [
+          0.5907167384187784,
+          0.8820761185551049
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 7,
+        "rate": 0.23333333333333334,
+        "wilson_95": [
+          0.11792388144489496,
+          0.40928326158122164
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 7,
+        "success": 7,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6456695649333126,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 23,
+        "auto_routed": 7
+      }
+    },
+    "ood/intent/what_can_i_ask_you": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 24,
+        "rate": 0.8,
+        "wilson_95": [
+          0.6269430358685175,
+          0.9049489282271013
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 6,
+        "success": 6,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6096657120978346,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 24,
+        "auto_routed": 6
+      }
+    },
+    "ood/intent/what_is_your_name": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 19,
+        "rate": 0.6333333333333333,
+        "wilson_95": [
+          0.4551356365479487,
+          0.7812607919389929
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 11,
+        "success": 11,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7411670330319684,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 11,
+        "low_confidence": 19
+      }
+    },
+    "ood/intent/where_are_you_from": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 19,
+        "rate": 0.6333333333333333,
+        "wilson_95": [
+          0.4551356365479487,
+          0.7812607919389929
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 11,
+        "success": 11,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7411670330319684,
+          1.0
+        ]
+      },
+      "reasons": {
+        "auto_routed": 11,
+        "low_confidence": 19
+      }
+    },
+    "ood/intent/who_do_you_work_for": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 16,
+        "rate": 0.5333333333333333,
+        "wilson_95": [
+          0.36142299619873297,
+          0.6976761109230025
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 14,
+        "rate": 0.4666666666666667,
+        "wilson_95": [
+          0.30232388907699753,
+          0.638577003801267
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 16,
+        "rate": 0.5333333333333333,
+        "wilson_95": [
+          0.36142299619873297,
+          0.6976761109230025
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 16,
+        "success": 16,
+        "rate": 1.0,
+        "wilson_95": [
+          0.8063923194655637,
+          1.0000000000000002
+        ]
+      },
+      "reasons": {
+        "auto_routed": 16,
+        "low_confidence": 14
+      }
+    },
+    "ood/intent/who_made_you": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 24,
+        "rate": 0.8,
+        "wilson_95": [
+          0.6269430358685175,
+          0.9049489282271013
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 6,
+        "rate": 0.2,
+        "wilson_95": [
+          0.0950510717728987,
+          0.3730569641314825
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 6,
+        "success": 6,
+        "rate": 1.0,
+        "wilson_95": [
+          0.6096657120978346,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 24,
+        "auto_routed": 6
+      }
+    },
+    "ood/kitchen_and_dining": {
+      "rows": 450,
+      "automatic_coverage": {
+        "count": 450,
+        "success": 148,
+        "rate": 0.3288888888888889,
+        "wilson_95": [
+          0.28708967877151126,
+          0.37358477701714987
+        ]
+      },
+      "rejection_coverage": {
+        "count": 450,
+        "success": 302,
+        "rate": 0.6711111111111111,
+        "wilson_95": [
+          0.6264152229828502,
+          0.7129103212284887
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 450,
+        "success": 148,
+        "rate": 0.3288888888888889,
+        "wilson_95": [
+          0.28708967877151126,
+          0.37358477701714987
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 148,
+        "success": 148,
+        "rate": 1.0,
+        "wilson_95": [
+          0.9747008567322154,
+          0.9999999999999999
+        ]
+      },
+      "reasons": {
+        "low_confidence": 300,
+        "auto_routed": 148,
+        "no_known_terms": 2
+      }
+    },
+    "ood/small_talk": {
+      "rows": 450,
+      "automatic_coverage": {
+        "count": 450,
+        "success": 128,
+        "rate": 0.28444444444444444,
+        "wilson_95": [
+          0.24472236488375357,
+          0.3278155859149494
+        ]
+      },
+      "rejection_coverage": {
+        "count": 450,
+        "success": 322,
+        "rate": 0.7155555555555555,
+        "wilson_95": [
+          0.6721844140850506,
+          0.7552776351162465
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 450,
+        "success": 128,
+        "rate": 0.28444444444444444,
+        "wilson_95": [
+          0.24472236488375357,
+          0.3278155859149494
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 128,
+        "success": 128,
+        "rate": 1.0,
+        "wilson_95": [
+          0.9708630437264916,
+          1.0
+        ]
+      },
+      "reasons": {
+        "low_confidence": 319,
+        "auto_routed": 128,
+        "no_known_terms": 3
+      }
+    },
+    "ood/utility": {
+      "rows": 450,
+      "automatic_coverage": {
+        "count": 450,
+        "success": 137,
+        "rate": 0.30444444444444446,
+        "wilson_95": [
+          0.26373074665398116,
+          0.34846863139020295
+        ]
+      },
+      "rejection_coverage": {
+        "count": 450,
+        "success": 313,
+        "rate": 0.6955555555555556,
+        "wilson_95": [
+          0.6515313686097972,
+          0.7362692533460189
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 450,
+        "success": 137,
+        "rate": 0.30444444444444446,
+        "wilson_95": [
+          0.26373074665398116,
+          0.34846863139020295
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 137,
+        "success": 137,
+        "rate": 1.0,
+        "wilson_95": [
+          0.9727249429758839,
+          0.9999999999999999
+        ]
+      },
+      "reasons": {
+        "low_confidence": 302,
+        "auto_routed": 137,
+        "no_known_terms": 11
+      }
+    },
+    "shift": {
+      "rows": 90,
+      "automatic_coverage": {
+        "count": 90,
+        "success": 75,
+        "rate": 0.8333333333333334,
+        "wilson_95": [
+          0.743061136966912,
+          0.8963151126568702
+        ]
+      },
+      "rejection_coverage": {
+        "count": 90,
+        "success": 15,
+        "rate": 0.16666666666666666,
+        "wilson_95": [
+          0.10368488734312978,
+          0.2569388630330881
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 90,
+        "success": 37,
+        "rate": 0.4111111111111111,
+        "wilson_95": [
+          0.31513204023844693,
+          0.5143676265285444
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 75,
+        "success": 37,
+        "rate": 0.49333333333333335,
+        "wilson_95": [
+          0.38330010247790747,
+          0.6040162154218635
+        ]
+      },
+      "reasons": {
+        "auto_routed": 75,
+        "low_confidence": 15
+      }
+    },
+    "shift/banking": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 28,
+        "rate": 0.9333333333333333,
+        "wilson_95": [
+          0.7867654163738308,
+          0.9815229762087295
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 2,
+        "rate": 0.06666666666666667,
+        "wilson_95": [
+          0.018477023791270378,
+          0.2132345836261692
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 22,
+        "rate": 0.7333333333333333,
+        "wilson_95": [
+          0.555520383048111,
+          0.8581733668040368
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 28,
+        "success": 22,
+        "rate": 0.7857142857142857,
+        "wilson_95": [
+          0.6046141434627812,
+          0.8978753966710211
+        ]
+      },
+      "reasons": {
+        "auto_routed": 28,
+        "low_confidence": 2
+      }
+    },
+    "shift/credit_cards": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 29,
+        "rate": 0.9666666666666667,
+        "wilson_95": [
+          0.8332960900859082,
+          0.9940914096183874
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 1,
+        "rate": 0.03333333333333333,
+        "wilson_95": [
+          0.005908590381612455,
+          0.16670390991409173
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 4,
+        "rate": 0.13333333333333333,
+        "wilson_95": [
+          0.053096554840547455,
+          0.296813266820363
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 29,
+        "success": 4,
+        "rate": 0.13793103448275862,
+        "wilson_95": [
+          0.05497439964111964,
+          0.30558993720352023
+        ]
+      },
+      "reasons": {
+        "auto_routed": 29,
+        "low_confidence": 1
+      }
+    },
+    "shift/intent/exchange_rate": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 18,
+        "rate": 0.6,
+        "wilson_95": [
+          0.42320360253322475,
+          0.7540937188319815
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 18,
+        "success": 11,
+        "rate": 0.6111111111111112,
+        "wilson_95": [
+          0.3861904160223791,
+          0.7969475342783638
+        ]
+      },
+      "reasons": {
+        "auto_routed": 18,
+        "low_confidence": 12
+      }
+    },
+    "shift/intent/pin_change": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 28,
+        "rate": 0.9333333333333333,
+        "wilson_95": [
+          0.7867654163738308,
+          0.9815229762087295
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 2,
+        "rate": 0.06666666666666667,
+        "wilson_95": [
+          0.018477023791270378,
+          0.2132345836261692
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 22,
+        "rate": 0.7333333333333333,
+        "wilson_95": [
+          0.555520383048111,
+          0.8581733668040368
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 28,
+        "success": 22,
+        "rate": 0.7857142857142857,
+        "wilson_95": [
+          0.6046141434627812,
+          0.8978753966710211
+        ]
+      },
+      "reasons": {
+        "auto_routed": 28,
+        "low_confidence": 2
+      }
+    },
+    "shift/intent/report_lost_card": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 29,
+        "rate": 0.9666666666666667,
+        "wilson_95": [
+          0.8332960900859082,
+          0.9940914096183874
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 1,
+        "rate": 0.03333333333333333,
+        "wilson_95": [
+          0.005908590381612455,
+          0.16670390991409173
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 4,
+        "rate": 0.13333333333333333,
+        "wilson_95": [
+          0.053096554840547455,
+          0.296813266820363
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 29,
+        "success": 4,
+        "rate": 0.13793103448275862,
+        "wilson_95": [
+          0.05497439964111964,
+          0.30558993720352023
+        ]
+      },
+      "reasons": {
+        "auto_routed": 29,
+        "low_confidence": 1
+      }
+    },
+    "shift/travel": {
+      "rows": 30,
+      "automatic_coverage": {
+        "count": 30,
+        "success": 18,
+        "rate": 0.6,
+        "wilson_95": [
+          0.42320360253322475,
+          0.7540937188319815
+        ]
+      },
+      "rejection_coverage": {
+        "count": 30,
+        "success": 12,
+        "rate": 0.4,
+        "wilson_95": [
+          0.24590628116801852,
+          0.5767963974667752
+        ]
+      },
+      "automatic_error_all_rows": {
+        "count": 30,
+        "success": 11,
+        "rate": 0.36666666666666664,
+        "wilson_95": [
+          0.21873920806100708,
+          0.5448643634520511
+        ]
+      },
+      "automatic_error_conditional": {
+        "count": 18,
+        "success": 11,
+        "rate": 0.6111111111111112,
+        "wilson_95": [
+          0.3861904160223791,
+          0.7969475342783638
+        ]
+      },
+      "reasons": {
+        "auto_routed": 18,
+        "low_confidence": 12
+      }
+    }
+  },
+  "limits": "Wilson intervals are row-binomial descriptive intervals; paraphrase families may remain dependent. Shift mapping covers only three intents, not all 77. OOD measures rejection, not 150-class accuracy."
+}

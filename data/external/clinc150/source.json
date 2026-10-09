@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/clinc/oos-eval",
+  "revision": "828f8093932c8fe6ca7936c3d2e52903b1c523de",
+  "license": "CC-BY-3.0",
+  "citation": "Larson et al., An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction, EMNLP-IJCNLP 2019, https://aclanthology.org/D19-1131/",
+  "files_sha256": {
+    "data_full.json": "36923c3705a59e08fe9c3883d8bc2dd966ef93e22cb78ac41171782a698d56e0",
+    "domains.json": "b947b579d3b8e74b06f93b01083d8efaff2888b43a3e362533bd88a6e1211b3a",
+    "LICENSE": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
+  },
+  "ood_domains": [
+    "kitchen_and_dining",
+    "auto_and_commute",
+    "utility",
+    "small_talk"
+  ],
+  "shift_mapping": {
+    "pin_change": "change_pin",
+    "report_lost_card": "lost_or_stolen_card",
+    "exchange_rate": "exchange_rate"
+  },
+  "selection": "All official test rows of selected domains and mapped intents. No CLINC train/val/oos splits used. Selection and mapping fixed before inference. Exclude normalized or punctuation-insensitive overlap with any BANKING77 train/test row, and within external selection.",
+  "feedback": "Saved banking77-v1 evaluation dataset.feedback is null; no feedback used in artifact.",
+  "family_definition": "NFKC lowercase project clean_text, then alphanumeric tokens joined; exact family hash only, no claim of semantic deduplication."
+}
